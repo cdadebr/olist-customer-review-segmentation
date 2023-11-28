@@ -176,13 +176,13 @@ def streamlit_app():
     \n""")
 
     # Embed Ngram Gif
-    ngram_file = open(r"media/videos/ngram_visualisation/NgramVisualization.gif", 'rb')
+    ngram_file = open(r"NgramVisualization.gif", 'rb')
     ngram_contents = ngram_file.read()
     data_url = base64.b64encode(ngram_contents).decode('utf-8')
     ngram_file.close()
     st.markdown(f'<div align="center"><img src="data:image/gif;base64,{data_url}" alt="cat gif"><div>', unsafe_allow_html=True)
 
-    video_file = open('media/videos/ngram_visualisation/1080p60/NgramVisualization.mp4', 'rb')
+    video_file = open('NgramVisualization.mp4', 'rb')
     video_bytes = video_file.read()
     st.video(video_bytes)
 
