@@ -1,5 +1,5 @@
 import re
-import umap
+import umap.umap_ as umap
 import pickle
 import base64
 import pandas as pd
