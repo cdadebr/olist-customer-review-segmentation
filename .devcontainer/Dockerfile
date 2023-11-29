@@ -8,4 +8,4 @@ RUN apk add --no-cache docker-compose
 
 ADD ./app /app
 
-EXPOSE 8080
+EXPOSE 8501

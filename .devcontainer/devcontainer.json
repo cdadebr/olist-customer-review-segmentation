@@ -5,11 +5,6 @@
     "dockerfile": "Dockerfile"
   },
   "customizations": {
-    "codespaces": {
-      "openFiles": [
-        "my_streamlit_app.py"
-      ]
-    },
     "vscode": {
       "settings": {},
       "extensions": [
@@ -18,7 +13,7 @@
       ]
     }
   },
-  "updateContentCommand": "[ -f packages.txt ] && sudo apt update && sudo apt upgrade -y && sudo xargs apt install -y <packages.txt; [ -f requirements.txt ] && pip3 install --user -r requirements.txt; pip3 install --user streamlit; echo '✅ Packages installed and Requirements met'",
+  "updateContentCommand": "[ -f packages.txt ] && sudo apk update && sudo apk upgrade -y && sudo xargs apk install -y <packages.txt; [ -f /workspaces/olist-customer-review-segmentation/app/requirements.txt ] && pip3 install --user -r /workspaces/olist-customer-review-segmentation/app/requirements.txt; pip3 install --user streamlit; echo '✅ Packages installed and Requirements met'",
   "portsAttributes": {
     "8501": {
       "label": "Application",
@@ -28,7 +23,7 @@
   "forwardPorts": [
     8501
   ],
-  "postCreateCommand": "setup_script.sh",
-  "postStartCommand": "cd app && docker-compose start",
+  "postCreateCommand": "/workspaces/olist-customer-review-segmentation/.devcontainer/setup_script.sh",
+  "postStartCommand": "cd /workspaces/olist-customer-review-segmentation/app && docker-compose start",
   "runArgs": ["--volume=/var/lib/docker", "--privileged"]
 }
