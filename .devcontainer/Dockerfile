@@ -1,18 +1,11 @@
-FROM ubuntu:latest
+FROM alpine:3.15.4
 
-# Install Docker
-RUN apt-get update && apt-get install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common \
-    gnupg \
-    lsb-release
+RUN apk update
+RUN apk add --no-cache git
+RUN apk add --no-cache docker-engine
+RUN apk add --no-cache docker-cli
+RUN apk add --no-cache docker-compose
 
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-RUN add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+ADD ./app /app
 
-RUN apt-get update && apt-get install -y docker-ce-cli
+EXPOSE 8080
