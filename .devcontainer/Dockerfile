@@ -6,6 +6,6 @@ RUN apk add --no-cache docker-engine
 RUN apk add --no-cache docker-cli
 RUN apk add --no-cache docker-compose
 
-ADD ./app /app
+ADD /workspaces/olist-customer-review-segmentation/app
 
 EXPOSE 8501
